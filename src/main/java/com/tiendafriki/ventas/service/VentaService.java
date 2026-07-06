@@ -156,9 +156,13 @@ public class VentaService implements CommandLineRunner {
 
         catch(Exception e){
 
-            throw new RuntimeException(
-                    "[ERROR] Fallo al intentar conectar con pedidos [X_X] ..."
-            );
+        System.out.println(
+                "[AVISO] No fue posible sincronizar ventas. "
+                + "El microservicio de Pedidos no está disponible."
+                + e.getMessage()
+        );
+
+        return "[+] Ventas sincronizadas: 0";
         }
     }
 
